@@ -46,5 +46,8 @@ async def  login(db:db_dependency,cred: OAuth2PasswordRequestForm=Depends() ):
     
 @app.get("/users/me/" , response_model=UserResponse  )
 async def get_current_user (current_user:User = Depends(get_current_user)):
-    return UserResponse(id=current_user.id , username=current_user.username , full_name=current_user.fullname)
+     try:
+            return UserResponse(id=current_user.id , username=current_user.username , full_name=current_user.fullname)
+     except Exception as e:
+            raise HTTPException(status_code=status.HTTP_400_BAD_REQUEST , detail=str(e))
     
