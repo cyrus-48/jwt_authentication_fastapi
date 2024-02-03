@@ -108,6 +108,7 @@ def create_access_token(data: dict, expires_delta: Optional[timedelta] = None):
     ```
 
 ### get_current_user
+```
 ```bash
 def get_current_user(db:Session = Depends(get_db) , access_token:str = Depends(oauth2_schema)):
     credentials_exception = JWTError
