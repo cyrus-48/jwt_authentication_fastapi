@@ -8,7 +8,6 @@ This is a simple fastapi application that demonstrates how to use JWT for authen
 
 
 ## Installation
-
 ### Clone the repository
 ```bash
 git clone 'repository url'

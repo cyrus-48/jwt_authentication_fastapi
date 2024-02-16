@@ -1,5 +1,6 @@
 from pydantic import BaseModel
 from typing import List, Optional
+from datetime import datetime
 
 
 class UserCreate(BaseModel):
@@ -22,5 +23,20 @@ class UserResponse(BaseModel):
     class Config:
         orm_mode = True
         
+        
+class NoteCreate(BaseModel):
+    title:str
+    description:str
+    
+class NoteResponse(NoteCreate):
+    created_at:datetime
+    updated_at:None | datetime
+    is_deleted:bool
+    owner_id:int
+    owner:UserResponse
+    id:int 
+    
+    class config:
+        orm_mode = True
         
         
